@@ -2,6 +2,7 @@
 const carousel = document.querySelector(".carousel");
 const progress = document.querySelector(".progress");
 const slides = document.querySelectorAll(".slide");
+const slideNumbers = document.querySelectorAll(".slideNumber");
 const prevButton = document.querySelector(".prev");
 const nextButton = document.querySelector(".next");
 const slideCount = slides.length;
@@ -31,6 +32,24 @@ const setActive = idx => {
   })
 }
 
+const setProgress = idx => {
+  slideNumbers.forEach(el => {
+    el.classList.remove("-active");
+  })
+  slideNumbers[idx].classList.add("-active");
+}
+
+// progress numbers listener
+const progressNumbers = () => {
+  slideNumbers.forEach((el, idx) => {
+    el.addEventListener('click', event => {
+      const i = parseInt(event.target.dataset.idx);
+      setActive(i);
+      setProgress(i);
+    })
+  })
+}
+
 // prevNext listener
 const prevNext = idx => {
   if(idx === 0) {
@@ -47,14 +66,19 @@ const prevNext = idx => {
     nextButton.dataset.idx = idx + 1;
   }
 
-  setActive(idx)
+  setActive(idx);
+  setProgress(idx);
 }
 
 const setIndexes = () => {
   slides.forEach((el,idx) => {
     el.dataset.idx = idx;
   })
+  slideNumbers.forEach((el,idx) => {
+    el.dataset.idx = idx;
+  })
   slides[0].classList.add("-active");
+  slideNumbers[0].classList.add("-active");
   prevNext(0);
 }
 
@@ -68,6 +92,7 @@ const setIndexes = () => {
 
 const init = () => {
   setIndexes();
+  progressNumbers();
 }
 
 init();

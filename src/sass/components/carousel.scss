@@ -13,6 +13,7 @@
       justify-content: center;
       align-items: center;
       gap: .5rem;
+      padding: 1em 0;
 
     }
 
@@ -36,7 +37,22 @@
       .next {
         grid-column: 3;
       }
+    }
 
+    .slideNumber {
+      border: 1px solid transparent;
+      border-radius: 50%;
+      width: 2em;
+      height: 2em;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      &.-active {
+        border-color: var(--cta);
+      }
     }
   }
 
@@ -47,6 +63,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   position: relative;
+  overflow: hidden;
 
   .slide {
     border: 1px solid yellow;
@@ -64,6 +81,7 @@
       left: -101%;
     }
   }
+
 
 
 }
