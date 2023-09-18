@@ -3,7 +3,7 @@
 @use "base" as *;
 
 main {
-  width: calc(100% - 4rem);
+  width: calc(100% - $padding);
   margin: 2rem auto;
   padding: 1rem;
   max-width: $break-sm;

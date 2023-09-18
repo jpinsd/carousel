@@ -1,0 +1,69 @@
+.carousel {
+  &Wrapper {
+    border: 1px solid red;
+    display: grid;
+    grid-template-columns: 1.5rem 1fr 1.5rem;
+    grid-template-rows: repeat(3, auto);
+
+    .progress {
+      grid-row: 2;
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: .5rem;
+
+    }
+
+    .prevNext {
+      display: contents;
+
+      .prev,
+      .next {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        grid-row: 1;
+        cursor: pointer;
+        z-index: 2;
+      }
+
+      .prev {
+        grid-column: 1;
+      }
+      .next {
+        grid-column: 3;
+      }
+
+    }
+  }
+
+  border: 1px solid blue;
+  grid-row: 1;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  position: relative;
+
+  .slide {
+    border: 1px solid yellow;
+    padding: 1rem 2rem;
+    position: relative;
+    left: 101%;
+    grid-column: 1;
+    grid-row: 1;
+    transition: left .5s;
+
+    &.-active {
+      left: 0;
+    }
+    &.-completed {
+      left: -101%;
+    }
+  }
+
+
+}

@@ -31,7 +31,7 @@ body {
   overflow-x: hidden; /* ugh. I hate having to do this */
 }
 
-@include component.headings;
+// @include component.headings;
 @include nav.main-nav;
 @include footer.footer;
 
